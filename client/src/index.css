@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Scrollbar Width */
+::-webkit-scrollbar {
+    width: 5px; /* Width of vertical scrollbar */
+    height: 8px; /* Height of horizontal scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #e0f7fa; /* Light teal background */
+    border-radius: 5px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #0288d1; /* Primary blue for thumb */
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Smooth transition for color change */
+}
+ 
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #01579b; /* Darker blue for hover effect */
+}
