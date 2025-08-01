@@ -134,11 +134,11 @@ function Navbar() {
           {/* Cart Icon */}
           <div
             className="relative flex flex-row gap-1 justify-center items-center cursor-pointer"
-            onClick={() => setOpenCart(true)}
+            onClick={() => setOpenCart(prev=>!prev)}
           >
             <AiOutlineShoppingCart />
             <span className="hidden md:block">Cart</span>
-            {openCart && <Cart setOpenCart={setOpenCart} />}
+            {openCart && <Cart isCartOpen={setOpenCart} />}
           </div>
         </div>
       </div>

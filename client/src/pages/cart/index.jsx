@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { notify } from "../../utils/helper/notification";
 
-function Cart({ setOpenCart }) {
+function Cart({ isCartOpen }) {
   const navigate = useNavigate();
   const cartData = useSelector((state) => state.cartReducer);
 
@@ -35,7 +35,10 @@ function Cart({ setOpenCart }) {
                     <button
                       type="button"
                       className="p-2 text-blue-500 hover:text-blue-700 transition"
-                      onClick={() => setOpenCart(false)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        isCartOpen((prev) => !prev);
+                      }}
                     >
                       <svg
                         className="h-6 w-6"
@@ -77,10 +80,13 @@ function Cart({ setOpenCart }) {
                       className="w-full flex items-center justify-center rounded-md bg-blue-600 py-3 text-lg font-semibold text-white hover:bg-blue-700 transition"
                       onClick={() => {
                         if (cartData.length === 0) {
-                          notify("Please add some products to cart first", "info");
+                          notify(
+                            "Please add some products to cart first",
+                            "info"
+                          );
                         } else {
                           navigate("/orders");
-                          setOpenCart(false);
+                          isCartOpen((prev = !prev));
                         }
                       }}
                     >
@@ -93,7 +99,10 @@ function Cart({ setOpenCart }) {
                       <button
                         type="button"
                         className="font-semibold text-blue-600 hover:text-blue-800 transition"
-                        onClick={() => setOpenCart(false)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          isCartOpen((prev) => !prev);
+                        }}
                       >
                         Continue Shopping &rarr;
                       </button>

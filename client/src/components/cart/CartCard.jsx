@@ -46,6 +46,7 @@ function CartCard({ item }) {
               className="flex justify-center items-center bg-green-100 text-green-600 hover:text-green-700 hover:bg-green-200 h-full px-3 rounded-l cursor-pointer outline-none"
               onClick={(e) => {
                 e.preventDefault();
+                e.stopPropagation(); // Add this line
                 decQty();
               }}
             >
@@ -62,6 +63,7 @@ function CartCard({ item }) {
               className="flex justify-center items-center bg-green-100 text-green-600 hover:text-green-700 hover:bg-green-200 h-full px-3 rounded-r cursor-pointer outline-none"
               onClick={(e) => {
                 e.preventDefault();
+                e.stopPropagation(); // Add this line
                 incQty();
               }}
             >
@@ -75,6 +77,7 @@ function CartCard({ item }) {
               className="font-medium text-yellow-600 hover:text-yellow-500"
               onClick={(e) => {
                 e.preventDefault();
+                e.stopPropagation(); // Add this line
                 removeProductFromCart();
               }}
             >
