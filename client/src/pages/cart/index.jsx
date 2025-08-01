@@ -86,7 +86,7 @@ function Cart({ isCartOpen }) {
                           );
                         } else {
                           navigate("/orders");
-                          isCartOpen((prev = !prev));
+                          isCartOpen((prev => !prev));
                         }
                       }}
                     >
